@@ -1,9 +1,14 @@
 "use client";
 import { Center } from "@chakra-ui/react";
 import { Container, Grid, Typography } from "@mui/material";
-import { Button, Checkbox, Label, TextInput } from "flowbite-react";
+import { Button, Checkbox, Label, TextInput, FileInput } from "flowbite-react";
 
 const Profile = () => {
+
+  function onFileChange(e){}
+
+  
+
   return (
     <Container>
       <Typography
@@ -19,30 +24,71 @@ const Profile = () => {
       >
         Editar Perfil
       </Typography>
-      <Grid container spacing={2} p={2} mt={4}>
+      <Grid container spacing={2} p={2} mt={3}>
         <form className="flex flex-col gap-4 form-grid">
           <div>
             <div className="mb-2 block">
-              <Label htmlFor="email1" value="Your email" />
+              <Label htmlFor="file-upload" value="Imagem:"/>
+            </div>
+            <FileInput
+              id="file-upload"
+              type="file"
+              name="image"
+              handleOnChange={onFileChange}
+              />
+          </div>
+          <div>
+            <div className="mb-2 block">
+              <Label htmlFor="email1" value="E-mail:" />
             </div>
             <TextInput
               id="email1"
               type="email"
-              placeholder="name@flowbite.com"
+              placeholder="Digite seu novo e-mail"
               required
             />
           </div>
           <div>
             <div className="mb-2 block">
-              <Label htmlFor="password1" value="Your password" />
+              <Label htmlFor="name1" value="Nome:" />
             </div>
-            <TextInput id="password1" type="password" required />
+            <TextInput 
+              id="name1" 
+              type="text"
+              placeholder="Digite seu novo nome de perfil"
+              required />
           </div>
-          <div className="flex items-center gap-2">
-            <Checkbox id="remember" />
-            <Label htmlFor="remember">Remember me</Label>
+          <div>
+            <div className="mb-2 block">
+              <Label htmlFor="phone1" value="Telefone:" />
+            </div>
+            <TextInput 
+              id="phone1" 
+              type="text"
+              placeholder="Digite seu novo telefone"
+              required />
           </div>
-          <Button type="submit">Editar</Button>
+          <div>
+            <div className="mb-2 block">
+              <Label htmlFor="password1" value="Senha:" />
+            </div>
+            <TextInput 
+              id="password1" 
+              type="password"
+              placeholder="Digite sua nova senha"
+              required />
+          </div>
+          <div>
+            <div className="mb-2 block">
+              <Label htmlFor="confirm_password1" value="Confirmar Senha:" />
+            </div>
+            <TextInput 
+              id="confirm_password1" 
+              type="password"
+              placeholder="Confirme sua nova senha"
+              required />
+          </div>
+          <Button type="submit" style={{textTransform:"uppercase",marginTop:"16px"}}>Editar</Button>
         </form>
       </Grid>
     </Container>
